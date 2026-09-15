@@ -28,8 +28,10 @@ const data=JSON.parse(document.getElementById('dataset').textContent);
 const view=document.getElementById('view');
 const labels=data.dates;
 function fmt(n){return Number(n).toLocaleString('en-US')}
+function lots(n){return (Number(n)/1000).toLocaleString('en-US',{maximumFractionDigits:3})}
 function hasChange(f,row){return labels.some(d=>f.changes[d]&&f.changes[d][row.code])}
 function latestDelta(f,row){for(const d of labels){const v=f.changes[d]?.[row.code];if(v)return Math.abs(v)}return 0}
+function shouldShow(f,row){if(!hasChange(f,row))return false;const todayDelta=f.changes[labels[0]]?.[row.code]||0;return !(Number(row.shares)===1000&&todayDelta>=0)}
 function render(code){
   const f=data.funds[code];
   const rows=f.rows.filter(r=>shouldShow(f,r)).sort((a,b)=>Number((b.weight||'0').replace('%',''))-Number((a.weight||'0').replace('%',''))||latestDelta(f,b)-latestDelta(f,a));
@@ -60,3 +62,5 @@ render('00981A');
 </script>
 </body>
 </html>
+
+
