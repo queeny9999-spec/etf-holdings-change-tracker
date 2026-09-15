@@ -12,7 +12,7 @@
 <body>
 <main class="wrap">
   <header class="top">
-    <div><h1>ETF 成分股異動追蹤</h1><p class="sub">00981A・00403A・00991A｜官方每日持股股數增減</p></div>
+    <div><h1>ETF 成分股異動追蹤</h1><p class="sub">00981A・00403A・00991A｜官方每日持股張數增減</p></div>
     <div class="status">已更新：2026/09/15 三檔官網資料</div>
   </header>
   <nav class="tabs" aria-label="ETF 分頁">
@@ -32,19 +32,19 @@ function hasChange(f,row){return labels.some(d=>f.changes[d]&&f.changes[d][row.c
 function latestDelta(f,row){for(const d of labels){const v=f.changes[d]?.[row.code];if(v)return Math.abs(v)}return 0}
 function render(code){
   const f=data.funds[code];
-  const rows=f.rows.filter(r=>hasChange(f,r)).sort((a,b)=>Number((b.weight||'0').replace('%',''))-Number((a.weight||'0').replace('%',''))||latestDelta(f,b)-latestDelta(f,a));
+  const rows=f.rows.filter(r=>shouldShow(f,r)).sort((a,b)=>Number((b.weight||'0').replace('%',''))-Number((a.weight||'0').replace('%',''))||latestDelta(f,b)-latestDelta(f,a));
   const th=labels.map(d=>`<th>${d}</th>`).join('');
-  const trs=rows.map(r=>`<tr><td><div class="stock"><span class="code">${r.code}</span><span class="name">${r.name}</span></div></td><td class="num weight">${r.weight||''}</td><td class="num">${fmt(r.shares||0)}</td>${labels.map(d=>{
+  const trs=rows.map(r=>`<tr><td><div class="stock"><span class="code">${r.code}</span><span class="name">${r.name}</span></div></td><td class="num weight">${r.weight||''}</td><td class="num">${lots(r.shares||0)}</td>${labels.map(d=>{
     const delta=f.changes[d]?.[r.code]||0;
     if(!delta)return '<td class="zero"></td>';
     const prev=(snapShare(code,r.code,d)-delta);
     const isNew=delta>0&&prev===0;
     const isDual=delta>0&&data.dualBuys[d]?.includes(r.code);
     const cls=`${delta>0?'cell-up':'cell-down'} ${isNew?'new':''} ${isDual?'dual':''}`;
-    return `<td class="${cls}"><span class="delta">${delta>0?'+':''}${fmt(delta)}</span>${isNew?'<span class="tag">新倉</span>':''}${isDual?'<span class="tag">雙買</span>':''}</td>`;
+    return `<td class="${cls}"><span class="delta">${delta>0?'+':''}${lots(delta)}</span>${isNew?'<span class="tag">新倉</span>':''}${isDual?'<span class="tag">雙買</span>':''}</td>`;
   }).join('')}</tr>`).join('');
   const unavailable=f.availableDates.filter(d=>!d.available).map(d=>d.requestedDate);
-  view.innerHTML=`<div class="head"><div><div class="title">${code}　${f.name}</div><div class="note">只列近十個營業日內股數曾異動的股票，依最新權重排序。每日欄位單位：股。</div></div><div class="metrics"><div class="metric"><b>${f.date}</b>資料日</div><div class="metric"><b>${rows.length}</b>異動股票</div><div class="metric"><b>${labels.length}</b>營業日</div></div></div><div class="source">來源：<a href="${f.sourceUrl}" target="_blank" rel="noreferrer">${f.issuer}官方資料</a>。${unavailable.length?`缺資料：${unavailable.join('、')}`:''}</div><div class="legend"><span><i class="mark m-up"></i>增加</span><span><i class="mark m-down"></i>減少</span><span><i class="mark m-new"></i>新建倉</span><span><i class="mark m-dual"></i>三檔中任兩檔同日買進</span></div><div class="table-wrap"><table><thead><tr><th>股票</th><th>權重</th><th>最新股數</th>${th}</tr></thead><tbody>${trs}</tbody></table></div><div class="foot">空白代表該日股數未變動。資料產生時間：${data.generatedAt}</div>`;
+  view.innerHTML=`<div class="head"><div><div class="title">${code}　${f.name}</div><div class="note">只列近十個營業日內股數曾異動的股票，依最新權重排序。每日欄位單位：張。</div></div><div class="metrics"><div class="metric"><b>${f.date}</b>資料日</div><div class="metric"><b>${rows.length}</b>異動股票</div><div class="metric"><b>${labels.length}</b>營業日</div></div></div><div class="source">來源：<a href="${f.sourceUrl}" target="_blank" rel="noreferrer">${f.issuer}官方資料</a>。${unavailable.length?`缺資料：${unavailable.join('、')}`:''}</div><div class="legend"><span><i class="mark m-up"></i>增加</span><span><i class="mark m-down"></i>減少</span><span><i class="mark m-new"></i>新建倉</span><span><i class="mark m-dual"></i>三檔中任兩檔同日買進</span></div><div class="table-wrap"><table><thead><tr><th>股票</th><th>權重</th><th>最新張數</th>${th}</tr></thead><tbody>${trs}</tbody></table></div><div class="foot">空白代表該日股數未變動。資料產生時間：${data.generatedAt}</div>`;
 }
 function snapShare(fund,code,label){
   const f=data.funds[fund];
