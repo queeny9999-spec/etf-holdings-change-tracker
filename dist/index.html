@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ETF 成分股異動追蹤</title>
 <style>
-:root{--ink:#182230;--muted:#657286;--line:#dce3eb;--bg:#f4f7fb;--card:#fff;--accent:#1266d6;--green:#087f5b;--red:#c92a2a;--gold:#986500;--bluewash:#eaf3ff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans TC",sans-serif;font-size:14px}
-.wrap{width:min(1500px,100%);margin:auto;padding:20px 16px 40px}.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px}.eyebrow{font-size:12px;color:var(--accent);font-weight:800;letter-spacing:.08em}.hero h1{font-size:clamp(24px,3vw,38px);line-height:1.12;margin:6px 0}.sub{color:var(--muted);margin:0}.status{background:#e7f6ef;border:1px solid #b8e3cf;color:#087f5b;border-radius:999px;padding:8px 12px;white-space:nowrap;font-weight:700;font-size:12px}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.tab{border:1px solid var(--line);background:#fff;color:var(--muted);padding:10px 15px;border-radius:12px;cursor:pointer;font:inherit;font-weight:800}.tab.active{background:var(--ink);border-color:var(--ink);color:#fff}
+:root{--ink:#f3f7fb;--muted:#aebdca;--line:#334455;--bg:#0d141c;--card:#17232e;--accent:#79b8ff;--green:#62d6a0;--red:#ff8f8f;--gold:#ffd166;--bluewash:#20364a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans TC",sans-serif;font-size:16px}
+.wrap{width:min(1500px,100%);margin:auto;padding:20px 16px 40px}.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px}.eyebrow{font-size:12px;color:var(--accent);font-weight:800;letter-spacing:.08em}.hero h1{font-size:clamp(24px,3vw,38px);line-height:1.12;margin:6px 0}.sub{color:var(--muted);margin:0}.status{background:#173b32;border:1px solid #2c765f;color:#72e0b2;border-radius:999px;padding:8px 12px;white-space:nowrap;font-weight:700;font-size:12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.tab{border:1px solid var(--line);background:#1d2a36;color:var(--muted);padding:10px 15px;border-radius:12px;cursor:pointer;font:inherit;font-weight:800}.tab.active{background:var(--ink);border-color:var(--ink);color:#fff}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px #172b4d0d;overflow:hidden}.panelhead{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:18px 20px 14px;border-bottom:1px solid var(--line)}.fund-title{font-size:20px;font-weight:900}.fund-name{font-size:13px;color:var(--muted);margin-top:3px}.meta{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px;text-align:right}.meta strong{color:var(--ink);font-size:15px;display:block}
 .notice{margin:14px 20px 0;border:1px solid #f0d9a4;background:#fff8e8;color:#6d4a00;border-radius:12px;padding:10px 12px;font-size:12px;line-height:1.55}.notice b{color:#5b3c00}.source{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:13px 20px;color:var(--muted);font-size:12px}.source a{color:var(--accent);font-weight:700;text-decoration:none}.source a:hover{text-decoration:underline}.legend{padding:0 20px 14px;color:var(--muted);font-size:12px}.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}.dot.up{background:#d9f6e9}.dot.down{background:#ffe1e1}.dot.new{background:#fff0bd}
-.table-wrap{width:100%;overflow:hidden;border-top:1px solid var(--line)}table{border-collapse:collapse;width:100%;table-layout:fixed}th,td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:5px 3px;text-align:center;vertical-align:middle;overflow:hidden}th{background:#f7f9fc;color:#526178;font-size:11px;font-weight:800;height:48px;line-height:1.2}th:first-child,td:first-child{width:18%;text-align:left;position:sticky;left:0;z-index:2}th:first-child{z-index:3;background:#eef3f8}td:first-child{background:#fff}.stock{display:flex;align-items:baseline;gap:5px;white-space:nowrap}.code{font-variant-numeric:tabular-nums;color:var(--accent);font-size:11px;font-weight:800}.name{font-weight:800;font-size:12px;overflow:hidden;text-overflow:ellipsis}.weight{font-size:10px;color:var(--muted);margin-left:auto;white-space:nowrap}.day{font-size:11px;display:block}.weekday{font-size:10px;color:#91a0b2;font-weight:500}.cell{min-height:38px;display:flex;flex-direction:column;justify-content:center;gap:3px}.delta{order:-1;font-variant-numeric:tabular-nums;font-size:13px;font-weight:900;line-height:1.05;color:#718096;white-space:nowrap}.shares{font-variant-numeric:tabular-nums;font-size:9px;font-weight:600;line-height:1.1;color:#8b98a8;white-space:nowrap}.up{background:#f0fbf6}.up .delta{color:var(--green)}.down{background:#fff5f5}.down .delta{color:var(--red)}.new{box-shadow:inset 0 3px 0 #f2b948}.new .delta{color:var(--gold);font-weight:900}.dual{outline:2px solid #7c4dff;outline-offset:-2px;background:#f4efff}.dual .delta{color:#6e3de0;font-weight:900}.blank{color:#b8c1cc;font-size:12px}.tag{display:inline-block;font-size:9px;padding:2px 4px;border-radius:4px;font-weight:900;margin-left:4px;vertical-align:1px}.tag-new{background:#fff0bd;color:#986500}.tag-dual{background:#e7dcff;color:#6e3de0}
-.foot{color:var(--muted);font-size:12px;padding:14px 20px 0;line-height:1.6}.footer{padding-top:16px;color:var(--muted);font-size:12px}.hidden{display:none}@media(max-width:900px){.wrap{padding:14px 8px 28px}.hero{align-items:flex-start;flex-direction:column}.status{white-space:normal}.panelhead{padding:14px 12px}.meta{text-align:left;gap:10px}.notice,.source,.legend,.foot{margin-left:12px;margin-right:12px;padding-left:0;padding-right:0}.table-wrap{overflow:hidden}th:first-child,td:first-child{width:22%}.name{font-size:11px}.weight{display:block;margin-left:0;font-size:9px}.stock{display:block}.code{font-size:10px}.shares{font-size:9px}.delta{font-size:8px}th{font-size:10px;height:42px}}
+.table-wrap{width:100%;overflow:hidden;border-top:1px solid var(--line)}table{border-collapse:collapse;width:100%;table-layout:fixed}th,td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:5px 3px;text-align:center;vertical-align:middle;overflow:hidden}th{background:#21313f;color:#d8e5ef;font-size:14px;font-weight:800;height:48px;line-height:1.2}th:first-child,td:first-child{width:18%;text-align:left;position:sticky;left:0;z-index:2}th:first-child{z-index:3;background:#263846}td:first-child{background:#17232e}.stock{display:flex;align-items:baseline;gap:5px;white-space:nowrap}.code{font-variant-numeric:tabular-nums;color:var(--accent);font-size:14px;font-weight:800}.name{font-weight:800;font-size:15px;overflow:hidden;text-overflow:ellipsis}.weight{font-size:13px;color:var(--muted);margin-left:auto;white-space:nowrap}.day{font-size:14px;display:block}.weekday{font-size:12px;color:#aebdca;font-weight:500}.cell{min-height:38px;display:flex;flex-direction:column;justify-content:center;gap:3px}.delta{order:-1;font-variant-numeric:tabular-nums;font-size:15px;font-weight:900;line-height:1.05;color:#718096;white-space:nowrap}.shares{font-variant-numeric:tabular-nums;font-size:9px;font-weight:600;line-height:1.1;color:#8b98a8;white-space:nowrap}.up{background:#173a31}.up .delta{color:var(--green)}.down{background:#42262b}.down .delta{color:var(--red)}.new{box-shadow:inset 0 3px 0 #f2b948}.new .delta{color:var(--gold);font-weight:900}.dual{outline:2px solid #7c4dff;outline-offset:-2px;background:#30294b}.dual .delta{color:#6e3de0;font-weight:900}.blank{color:#b8c1cc;font-size:12px}.tag{display:inline-block;font-size:9px;padding:2px 4px;border-radius:4px;font-weight:900;margin-left:4px;vertical-align:1px}.tag-new{background:#4f4320;color:#ffd166}.tag-dual{background:#41365f;color:#d4bfff}
+.foot{color:var(--muted);font-size:14px;padding:14px 20px 0;line-height:1.6}.footer{padding-top:16px;color:var(--muted);font-size:12px}.hidden{display:none}@media(max-width:900px){.wrap{padding:14px 8px 28px}.hero{align-items:flex-start;flex-direction:column}.status{white-space:normal}.panelhead{padding:14px 12px}.meta{text-align:left;gap:10px}.notice,.source,.legend,.foot{margin-left:12px;margin-right:12px;padding-left:0;padding-right:0}.table-wrap{overflow:hidden}th:first-child,td:first-child{width:22%}.name{font-size:13px}.weight{display:block;margin-left:0;font-size:9px}.stock{display:block}.code{font-size:13px}.shares{font-size:9px}.delta{font-size:13px}th{font-size:13px;height:48px}}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <header class="hero"><div><div class="eyebrow">OFFICIAL HOLDINGS MONITOR</div><h1>ETF 成分股異動追蹤</h1><p class="sub">00981A・00403A・00991A｜持股股數、比重與每日增減</p></div><div class="status">● 已更新：00981A/00403A 2026/09/16；00991A 2026/09/15 官網資料</div></header>
+  <header class="hero"><div><div class="eyebrow">OFFICIAL HOLDINGS MONITOR</div><h1>ETF 成分股異動追蹤</h1><p class="sub">00981A・00403A・00991A｜持股股數、比重與每日增減</p></div><div class="status">● 已更新：00981A/00403A 2026/09/16；00991A 2026/09/16 官網資料</div></header>
   <nav class="tabs" aria-label="ETF 分頁"><button class="tab active" data-fund="00981A">00981A</button><button class="tab" data-fund="00403A">00403A</button><button class="tab" data-fund="00991A">00991A</button></nav>
   <section id="view" class="panel"></section>
   <div class="footer">資料來源：<a href="https://www.ezmoney.com.tw/ETF/Fund/Info?FundCode=49YTW" target="_blank" rel="noreferrer">統一投信 00981A</a>、<a href="https://www.ezmoney.com.tw/ETF/Fund/Info?FundCode=63YTW" target="_blank" rel="noreferrer">統一投信 00403A</a>、<a href="https://vpx.fhtrust.com.tw/ETF/etf_detail/ETF23#stockhold" target="_blank" rel="noreferrer">復華投信 00991A</a>。資料日期以各官網投資組合頁面為準。</div>
@@ -679,130 +679,130 @@ const source={
   "00991A": {
     "name": "復華台灣未來50主動式ETF基金",
     "issuer": "復華投信",
-    "date": "2026/09/15",
-    "nav": "16.86",
-    "stockWeight": "98.701%",
+    "date": "2026/09/16",
+    "nav": "17.12",
+    "stockWeight": "98.641%",
     "url": "https://vpx.fhtrust.com.tw/ETF/etf_detail/ETF23#stockhold",
     "rows": [
       [
         "2330",
         "台灣積體",
         "3800000",
-        "12.048%"
+        "11.841%"
       ],
       [
         "2383",
         "台光電子",
         "1380000",
-        "9.383%"
+        "9.188%"
       ],
       [
         "2408",
         "南亞科技",
         "13800000",
-        "8.540%"
+        "8.899%"
       ],
       [
         "2059",
         "川湖科技",
         "500000",
-        "7.787%"
+        "7.885%"
       ],
       [
         "3037",
         "欣興電子",
         "5100000",
-        "6.447%"
+        "6.417%"
       ],
       [
         "2454",
         "聯發科技",
-        "1000000",
-        "5.889%"
+        "1080000",
+        "6.406%"
       ],
       [
         "2327",
         "國巨股份",
         "7500000",
-        "5.354%"
+        "5.263%"
       ],
       [
         "3017",
         "奇鋐科技",
         "1250000",
-        "5.176%"
+        "5.196%"
       ],
       [
         "8046",
         "南亞電路",
         "3300000",
-        "4.760%"
-      ],
-      [
-        "6669",
-        "緯穎科技",
-        "1500020",
-        "4.616%"
+        "4.774%"
       ],
       [
         "3189",
         "景碩科技",
         "4250000",
-        "4.492%"
+        "4.563%"
+      ],
+      [
+        "6669",
+        "緯穎科技",
+        "1500020",
+        "4.252%"
       ],
       [
         "5274",
         "信驊科技",
         "140500",
-        "3.272%"
-      ],
-      [
-        "6223",
-        "旺矽科技",
-        "450000",
-        "3.254%"
+        "3.357%"
       ],
       [
         "3081",
         "聯亞光電",
         "900000",
-        "3.200%"
+        "3.305%"
       ],
       [
-        "6274",
-        "台燿科技",
-        "1500000",
-        "2.732%"
-      ],
-      [
-        "2345",
-        "智邦科技",
-        "1100000",
-        "2.691%"
+        "6223",
+        "旺矽科技",
+        "450000",
+        "3.299%"
       ],
       [
         "3026",
         "禾伸堂企",
         "2700000",
-        "2.606%"
+        "2.729%"
       ],
       [
-        "3653",
-        "健策精密",
-        "340000",
-        "2.400%"
+        "2345",
+        "智邦科技",
+        "1100000",
+        "2.650%"
+      ],
+      [
+        "6274",
+        "台燿科技",
+        "1400000",
+        "2.594%"
       ],
       [
         "7769",
         "鴻勁精密",
         "250000",
-        "2.039%"
+        "2.005%"
+      ],
+      [
+        "3653",
+        "健策精密",
+        "290000",
+        "1.990%"
       ],
       [
         "3711",
         "日月光投",
         "2500000",
-        "1.967%"
+        "1.980%"
       ],
       [
         "3008",
@@ -823,15 +823,15 @@ const source={
         "0.003%"
       ],
       [
-        "2360",
-        "致茂電子",
-        "1000",
-        "0.003%"
-      ],
-      [
         "2603",
         "長榮海運",
         "9000",
+        "0.003%"
+      ],
+      [
+        "2360",
+        "致茂電子",
+        "1000",
         "0.003%"
       ],
       [
@@ -913,6 +913,12 @@ const source={
         "0.001%"
       ],
       [
+        "2884",
+        "玉山金融",
+        "9000",
+        "0.001%"
+      ],
+      [
         "2886",
         "兆豐金融",
         "9000",
@@ -937,21 +943,15 @@ const source={
         "0.001%"
       ],
       [
-        "2884",
-        "玉山金融",
+        "2883",
+        "凱基金融",
         "9000",
-        "0.001%"
+        "0.000%"
       ],
       [
         "2449",
         "京元電子",
         "1450",
-        "0.000%"
-      ],
-      [
-        "2883",
-        "凱基金融",
-        "9000",
         "0.000%"
       ],
       [
@@ -1029,13 +1029,18 @@ const verifiedChanges={
       "3711": 2491000,
       "8046": 50000,
       "8299": -779000
+    },
+    "09/16": {
+      "2454": 80000,
+      "3653": -50000,
+      "6274": -100000
     }
   }
 };
 const fundNotes={
   "00981A": "09/16 的持有股數與比重來自統一投信官網。因本工作區沒有留存 09/15 官網快照，09/16 欄位以「較上一個已驗證官網快照 09/14」呈現；空白為持平，非官網資料不補填。",
   "00403A": "09/16 的持有股數與比重來自統一投信官網。因本工作區沒有留存 09/15 官網快照，09/16 欄位以「較上一個已驗證官網快照 09/14」呈現；空白為持平，非官網資料不補填。",
-  "00991A": "09/15 的持有股數與比重來自復華投信官網，09/15 欄位為較 09/14 官網快照的異動；目前未使用第三方資料補值。"
+  "00991A": "09/16 的持有股數與比重來自復華投信官網，09/16 欄位為較 09/15 官網快照的實際股數異動；目前未使用第三方資料補值。官網尚未提供 09/17 檔案。"
 };
 const dualBuys=Object.fromEntries(dates.map(d=>[d,new Set(Object.keys(verifiedChanges).flatMap(fund=>Object.entries(verifiedChanges[fund][d]||{}).filter(([,v])=>v>0).map(([code])=>code)).filter((code,idx,arr)=>arr.indexOf(code)!==idx))]));
 const fundOrder=['00981A','00403A','00991A'];
