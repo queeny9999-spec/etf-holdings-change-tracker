@@ -1118,8 +1118,6 @@ const fmt=v=>Number(v).toLocaleString('en-US');
 const lots=v=>{const n=Number(v)/1000;return Number.isInteger(n)?fmt(n):n.toLocaleString('en-US',{maximumFractionDigits:3})};
 const latestDate=dates[0];
 const weight1=v=>num(v).toFixed(1)+'%';
-const weight1=v=>num(v).toFixed(1)+'%';
-for(const fund of fundOrder){source[fund].stockWeight=weight1(source[fund].stockWeight);source[fund].rows.forEach(r=>r[3]=weight1(r[3]));}
 const daily=fund=>verifiedChanges[fund][latestDate]||{};
 const dualBuys=Object.fromEntries(dates.map(d=>[d,new Set(Object.keys(verifiedChanges).flatMap(fund=>Object.entries(verifiedChanges[fund][d]||{}).filter(([,v])=>v>0).map(([code])=>code)).filter((code,i,arr)=>arr.indexOf(code)!==i))]));
 const officialLinks={"00981A":"https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=49YTW","00403A":"https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=63YTW","00991A":"https://www.fhtrust.com.tw/ETF/etf_detail/ETF23#stockhold"};
