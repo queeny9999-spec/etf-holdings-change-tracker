@@ -9,7 +9,7 @@
 :root{--bg:#0c1018;--panel:#151b26;--ink:#eef3fb;--muted:#9aa8bd;--line:#293345;--blue:#74aaff;--bluewash:#1b2b43;--green:#52d39e;--red:#ff8b9c;--nav:#080b11}.shell{padding-left:190px}.side{width:190px;padding:18px 10px}.brand{font-size:16px;margin:4px 8px 18px}.brand small{margin-top:4px}.nav-label{margin:14px 8px 5px}.nav-item{border-radius:8px;padding:9px 10px}.side-foot{padding:10px 8px}.tab.active{color:#07101e}th{background:#111722}th,td{padding:7px 10px;line-height:1.2}.table-title{padding:12px 16px}.stock-btn,.name{white-space:nowrap}.rank-head{padding:12px 14px}.rank-row{color:var(--ink);padding:8px 12px;line-height:1.2}.detail{border-color:#35527b}.detail-row{border-color:#35527b}.trust-table td,.trust-table th{white-space:nowrap}.trust-table th:not(:first-child),.trust-table td:not(:first-child){text-align:right}.trust-table .stock-btn{color:var(--blue)}.trust-mode{margin-bottom:12px}
 thead tr{height:34px}tbody tr,tbody td{height:34px}tbody td{white-space:nowrap}
 </style>
-</head><body><div class="shell"><aside class="side"><div class="brand">ETF 追蹤<small>官方持股資料</small></div><div class="nav-label">主要功能</div><button class="nav-item active" data-page="active">主動式 ETF</button><button class="nav-item" data-page="trust">投信買賣超</button><div class="side-foot" id="sideDate"></div></aside><main class="main"><header class="top"><div><h1 id="pageTitle"></h1><p class="sub" id="pageSub"></p></div><div class="status" id="status"></div></header><section id="app"></section></main></div><script src="https://xiaoyu-etf.pages.dev/data.js?v=1790123673446"></script><script>
+</head><body><div class="shell"><aside class="side"><div class="brand">ETF 追蹤<small>官方持股資料</small></div><div class="nav-label">主要功能</div><button class="nav-item active" data-page="active">主動式 ETF</button><button class="nav-item" data-page="trust">投信買賣超</button><div class="side-foot" id="sideDate"></div></aside><main class="main"><header class="top"><div><h1 id="pageTitle"></h1><p class="sub" id="pageSub"></p></div><div class="status" id="status"></div></header><section id="app"></section></main></div><script src="https://xiaoyu-etf.pages.dev/data.js?v=1790123867142"></script><script>
 const dates=[
   "09/22",
   "09/21",
@@ -1138,7 +1138,8 @@ const weight1=v=>num(v).toFixed(1)+'%';
 const daily=fund=>verifiedChanges[fund][latestDate]||{};
 const dualBuys=Object.fromEntries(dates.map(d=>[d,new Set(Object.keys(verifiedChanges).flatMap(fund=>Object.entries(verifiedChanges[fund][d]||{}).filter(([,v])=>v>0).map(([code])=>code)).filter((code,i,arr)=>arr.indexOf(code)!==i))]));
 const officialLinks={"00981A":"https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=49YTW","00403A":"https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=63YTW","00991A":"https://www.fhtrust.com.tw/ETF/etf_detail/ETF23#stockhold"};
-function xiaoyuMetrics(fund){const f=source[fund],x=(window.DATA?.etfs||[]).find(e=>e.code===fund);if(!x||String(x.date)!==String(f?.date||'').replaceAll('/',''))return null;const buy=Number(x.buy_amt),sell=Math.abs(Number(x.sell_amt)),net=Number(x.net);return [buy,sell,net].every(Number.isFinite)?{buy,sell,net}:null}
+const xiaoyuAmounts={"00981A":{date:'2026/09/22',buy:11.79,sell:14.78,net:-2.99},"00403A":{date:'2026/09/22',buy:5.04,sell:18.02,net:-12.98},"00991A":{date:'2026/09/22',buy:0,sell:7.95,net:-7.95}};
+function xiaoyuMetrics(fund){const f=source[fund],x=xiaoyuAmounts[fund];return x&&x.date===f?.date?x:null}
 const moneyYi=(v,sign=false)=>v==null?'—':(sign&&v>0?'+':sign&&v<0?'':'')+(v/1e8).toFixed(2)+' 億';
 function changedRows(fund){return source[fund].rows.filter(r=>num(r[2])>1000||dates.some(d=>verifiedChanges[fund][d]?.[r[0]])).sort((a,b)=>num(b[3])-num(a[3]));}
 function deltaClass(v){return v>0?'up':v<0?'down':''}
