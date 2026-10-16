@@ -10,8 +10,9 @@
 thead tr{height:34px}tbody tr,tbody td{height:34px}tbody td{white-space:nowrap}.report-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:14px}.report-grid .total td{font-weight:900;border-top:2px solid var(--line)}.report-grid .report-empty{padding:28px;color:var(--muted);text-align:center}.legend{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.legend-item{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:6px;font-size:12px;font-weight:800}.legend-item i{width:12px;height:12px;border-radius:3px;display:inline-block}.legend-item.new{background:rgba(242,213,107,.58);color:#241d00}.legend-item.new i,.fresh-buy{background:rgba(242,213,107,.58)!important;color:#241d00!important}.legend-item.dual{background:rgba(154,120,212,.62);color:#fff}.legend-item.dual i,.dual-buy{background:rgba(154,120,212,.62)!important;color:#fff!important}.date-col{width:70px;min-width:70px;max-width:70px;text-align:center!important;padding-left:5px;padding-right:5px}.trust-table th:first-child,.trust-table td:first-child{width:34px;min-width:34px;max-width:34px;text-align:center!important;padding-left:4px;padding-right:4px}
 @media(max-width:760px){.report-grid{grid-template-columns:1fr}.shell{padding-left:0}.side{display:grid;grid-template-columns:minmax(0,1fr) repeat(3,auto);align-items:center;gap:5px;padding:8px 10px}.brand{margin:0;white-space:nowrap}.nav-item{padding:8px 7px;font-size:13px;white-space:nowrap}.side-foot{display:block;grid-column:1/-1;margin:0;padding:2px 6px 0;font-size:12px}.main{font-size:20px}.main h1{font-size:32px}.main .sub{font-size:17px}.tab{font-size:17px;padding:10px 14px}.fund-title{font-size:22px}.fund-meta{font-size:15px}.metric span{font-size:15px}.metric strong{font-size:26px}.table-title{font-size:18px}.legend-item{font-size:15px}.source{font-size:14px}.table-card{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin}.table-card table:not(.trust-table) th:first-child,.table-card table:not(.trust-table) td:first-child{position:sticky;left:0;z-index:2;background:var(--panel)}.trust-table th:first-child,.trust-table td:first-child{position:sticky;left:0;z-index:3;background:var(--panel)}.trust-table th:nth-child(2),.trust-table td:nth-child(2){position:sticky;left:34px;z-index:2;background:var(--panel)}.table-card th,.table-card td{padding-top:9px;padding-bottom:9px}.table-card th{font-size:15px}.table-card td{font-size:18px}.stock-btn{padding:4px 0}}
 </style>
-</head><body><div class="shell"><aside class="side"><div class="brand">ETF 追蹤<small>官方持股資料</small></div><div class="nav-label">主要功能</div><button class="nav-item active" data-page="active">主動式 ETF</button><button class="nav-item" data-page="trust">主動式ETF買賣超</button><button class="nav-item" data-page="market">大盤日報</button><div class="side-foot" id="sideDate"></div></aside><main class="main"><header class="top"><div><h1 id="pageTitle"></h1><p class="sub" id="pageSub"></p></div><div class="status" id="status"></div></header><section id="app"></section></main></div><script src="https://xiaoyu-etf.pages.dev/data.js?v=20261015"></script><script>
+</head><body><div class="shell"><aside class="side"><div class="brand">ETF 追蹤<small>官方持股資料</small></div><div class="nav-label">主要功能</div><button class="nav-item active" data-page="active">主動式 ETF</button><button class="nav-item" data-page="trust">主動式ETF買賣超</button><button class="nav-item" data-page="market">大盤日報</button><div class="side-foot" id="sideDate"></div></aside><main class="main"><header class="top"><div><h1 id="pageTitle"></h1><p class="sub" id="pageSub"></p></div><div class="status" id="status"></div></header><section id="app"></section></main></div><script src="https://xiaoyu-etf.pages.dev/data.js?v=20261016"></script><script>
 const dates=[
+  "10/16",
   "10/15",
   "10/14",
   "10/13",
@@ -20,179 +21,184 @@ const dates=[
   "10/07",
   "10/06",
   "10/05",
-  "10/02",
-  "10/01"
+  "10/02"
 ];
 const days=[
-  "四",
-  "三",
-  "二",
-  "一",
-  "四",
-  "三",
-  "二",
-  "一",
   "五",
-  "四"
+  "四",
+  "三",
+  "二",
+  "一",
+  "四",
+  "三",
+  "二",
+  "一",
+  "五"
 ];
 const source={
   "00981A": {
     "name": "主動統一台股增長",
     "issuer": "統一投信",
-    "date": "2026/10/15",
-    "nav": "29.11",
-    "stockWeight": "96.449%",
+    "date": "2026/10/16",
+    "nav": "29.35",
+    "stockWeight": "96.170%",
     "url": "https://www.ezmoney.com.tw/ETF/Fund/Info?FundCode=49YTW",
     "rows": [
       [
         "2330",
         "台積電",
         "12188000",
-        "11.220%"
+        "10.840%"
       ],
       [
         "2383",
         "台光電",
         "4328000",
-        "8.360%"
+        "8.210%"
       ],
       [
         "2454",
         "聯發科",
-        "5086000",
-        "7.990%"
+        "5143000",
+        "8.030%"
       ],
       [
         "3037",
         "欣興",
-        "18938000",
-        "7.680%"
+        "19386000",
+        "7.760%"
       ],
       [
         "3017",
         "奇鋐",
-        "6147000",
-        "7.150%"
+        "6303000",
+        "7.680%"
       ],
       [
         "3653",
         "健策",
         "2502000",
-        "6.390%"
+        "6.190%"
       ],
       [
         "2327",
         "國巨*",
         "23519000",
-        "5.080%"
+        "4.900%"
       ],
       [
         "6223",
         "旺矽",
         "2504000",
-        "5.010%"
+        "4.790%"
       ],
       [
         "2345",
         "智邦",
         "6264000",
-        "4.610%"
+        "4.560%"
       ],
       [
         "2308",
         "台達電",
-        "7389000",
-        "4.540%"
+        "7507000",
+        "4.510%"
       ],
       [
         "8046",
         "南電",
         "8937000",
-        "4.530%"
+        "4.450%"
       ],
       [
         "6274",
         "台燿",
-        "7046000",
-        "4.320%"
+        "7224000",
+        "4.290%"
       ],
       [
         "2303",
         "聯電",
         "79618000",
-        "4.010%"
+        "3.890%"
       ],
       [
         "2368",
         "金像電",
-        "5808000",
-        "2.610%"
+        "6700000",
+        "3.060%"
       ],
       [
         "6669",
         "緯穎",
         "3281561",
-        "2.360%"
+        "2.220%"
       ],
       [
         "3665",
         "貿聯-KY",
         "2887848",
-        "2.200%"
+        "2.140%"
       ],
       [
         "3443",
         "創意",
         "751000",
-        "2.170%"
+        "2.060%"
       ],
       [
         "3711",
         "日月光投控",
         "8348000",
-        "2.120%"
+        "2.060%"
       ],
       [
         "5274",
         "信驊",
-        "186900",
-        "1.120%"
+        "201900",
+        "1.220%"
+      ],
+      [
+        "8996",
+        "高力",
+        "981000",
+        "0.570%"
+      ],
+      [
+        "6805",
+        "富世達",
+        "649000",
+        "0.540%"
       ],
       [
         "6510",
         "精測",
         "470000",
-        "0.520%"
+        "0.540%"
       ],
       [
         "2449",
         "京元電子",
         "4143450",
-        "0.430%"
+        "0.420%"
       ],
       [
-        "6805",
-        "富世達",
-        "499000",
-        "0.400%"
-      ],
-      [
-        "8996",
-        "高力",
-        "696000",
-        "0.400%"
-      ],
-      [
-        "4979",
-        "華星光",
-        "957000",
-        "0.200%"
+        "3264",
+        "欣銓",
+        "1857000",
+        "0.180%"
       ],
       [
         "6271",
         "同欣電",
         "2185000",
-        "0.190%"
+        "0.180%"
+      ],
+      [
+        "4979",
+        "華星光",
+        "957000",
+        "0.180%"
       ],
       [
         "6515",
@@ -207,12 +213,6 @@ const source={
         "0.150%"
       ],
       [
-        "3264",
-        "欣銓",
-        "1257000",
-        "0.130%"
-      ],
-      [
         "6191",
         "精成科",
         "3921000",
@@ -222,7 +222,7 @@ const source={
         "3376",
         "新日興",
         "1740000",
-        "0.120%"
+        "0.110%"
       ],
       [
         "6187",
@@ -231,15 +231,15 @@ const source={
         "0.060%"
       ],
       [
-        "2002",
-        "中鋼",
-        "5163000",
-        "0.040%"
-      ],
-      [
         "2313",
         "華通",
         "501000",
+        "0.050%"
+      ],
+      [
+        "2002",
+        "中鋼",
+        "5163000",
         "0.040%"
       ],
       [
@@ -346,114 +346,120 @@ const source={
       ]
     ],
     "sourceFundCode": "49YTW",
-    "assetDate": "2026/10/15",
-    "netAssets": "265077155411",
-    "units": "9104709000",
+    "assetDate": "2026/10/16",
+    "netAssets": "272213672860",
+    "units": "9276209000",
     "retiredRows": []
   },
   "00403A": {
     "name": "主動統一升級50",
     "issuer": "統一投信",
-    "date": "2026/10/15",
-    "nav": "10.36",
-    "stockWeight": "89.676%",
+    "date": "2026/10/16",
+    "nav": "10.40",
+    "stockWeight": "89.547%",
     "url": "https://www.ezmoney.com.tw/ETF/Fund/Info?FundCode=63YTW",
     "rows": [
       [
         "2330",
         "台積電",
         "7700000",
-        "14.340%"
-      ],
-      [
-        "3653",
-        "健策",
-        "1115000",
-        "5.760%"
+        "14.170%"
       ],
       [
         "3037",
         "欣興",
         "7000000",
-        "5.740%"
+        "5.800%"
       ],
       [
-        "2383",
-        "台光電",
-        "1400000",
-        "5.470%"
+        "3653",
+        "健策",
+        "1115000",
+        "5.700%"
       ],
       [
         "2454",
         "聯發科",
         "1700000",
-        "5.400%"
+        "5.490%"
       ],
       [
         "3017",
         "奇鋐",
-        "2100000",
-        "4.940%"
+        "2140000",
+        "5.390%"
+      ],
+      [
+        "2383",
+        "台光電",
+        "1200000",
+        "4.710%"
       ],
       [
         "2327",
         "國巨*",
         "8800000",
-        "3.850%"
+        "3.790%"
       ],
       [
         "3443",
         "創意",
         "655000",
-        "3.830%"
+        "3.720%"
       ],
       [
         "6223",
         "旺矽",
         "930000",
-        "3.760%"
+        "3.680%"
       ],
       [
         "2308",
         "台達電",
         "2900000",
-        "3.610%"
+        "3.600%"
       ],
       [
         "3189",
         "景碩",
         "4450000",
-        "3.320%"
+        "3.380%"
       ],
       [
         "8046",
         "南電",
         "3010000",
-        "3.090%"
+        "3.100%"
       ],
       [
         "6274",
         "台燿",
         "2300000",
-        "2.850%"
+        "2.820%"
       ],
       [
         "1303",
         "南亞",
         "11500000",
-        "2.760%"
-      ],
-      [
-        "6669",
-        "緯穎",
-        "1697956",
-        "2.470%"
+        "2.680%"
       ],
       [
         "2345",
         "智邦",
         "1600000",
+        "2.410%"
+      ],
+      [
+        "6669",
+        "緯穎",
+        "1697956",
         "2.380%"
+      ],
+      [
+        "8996",
+        "高力",
+        "1880000",
+        "2.240%"
       ],
       [
         "3665",
@@ -462,58 +468,52 @@ const source={
         "2.240%"
       ],
       [
-        "8996",
-        "高力",
-        "1880000",
-        "2.180%"
-      ],
-      [
         "5274",
         "信驊",
         "145500",
-        "1.770%"
+        "1.820%"
       ],
       [
         "3008",
         "大立光",
         "335000",
-        "1.690%"
+        "1.630%"
       ],
       [
         "2303",
         "聯電",
         "15000000",
-        "1.530%"
+        "1.520%"
       ],
       [
         "2408",
         "南亞科",
         "2800000",
-        "0.940%"
+        "0.950%"
       ],
       [
         "2449",
         "京元電子",
         "4000000",
-        "0.830%"
+        "0.840%"
+      ],
+      [
+        "2368",
+        "金像電",
+        "700000",
+        "0.660%"
       ],
       [
         "2317",
         "鴻海",
         "3200000",
-        "0.580%"
+        "0.590%"
       ],
       [
         "2059",
         "川湖",
         "75000",
-        "0.560%"
-      ],
-      [
-        "3450",
-        "聯鈞",
-        "1500000",
-        "0.540%"
+        "0.570%"
       ],
       [
         "3211",
@@ -522,16 +522,22 @@ const source={
         "0.530%"
       ],
       [
-        "2368",
-        "金像電",
-        "480000",
-        "0.440%"
+        "3450",
+        "聯鈞",
+        "1500000",
+        "0.520%"
+      ],
+      [
+        "6805",
+        "富世達",
+        "250000",
+        "0.430%"
       ],
       [
         "6442",
         "光聖",
         "350000",
-        "0.410%"
+        "0.400%"
       ],
       [
         "3583",
@@ -540,27 +546,21 @@ const source={
         "0.400%"
       ],
       [
+        "2313",
+        "華通",
+        "2000000",
+        "0.380%"
+      ],
+      [
         "2882",
         "國泰金",
         "4000000",
         "0.350%"
       ],
       [
-        "6805",
-        "富世達",
-        "170000",
-        "0.270%"
-      ],
-      [
         "6488",
         "環球晶",
         "300000",
-        "0.210%"
-      ],
-      [
-        "2313",
-        "華通",
-        "1200000",
         "0.210%"
       ],
       [
@@ -570,16 +570,16 @@ const source={
         "0.130%"
       ],
       [
+        "6285",
+        "啟碁",
+        "350000",
+        "0.070%"
+      ],
+      [
         "2455",
         "全新",
         "200000",
         "0.070%"
-      ],
-      [
-        "6285",
-        "啟碁",
-        "350000",
-        "0.060%"
       ],
       [
         "2301",
@@ -661,8 +661,8 @@ const source={
       ]
     ],
     "sourceFundCode": "63YTW",
-    "assetDate": "2026/10/15",
-    "netAssets": "131053823746",
+    "assetDate": "2026/10/16",
+    "netAssets": "131543621778",
     "units": "12654019000",
     "priorRows": [
       [
@@ -690,8 +690,8 @@ const source={
   "00991A": {
     "name": "復華台灣未來50主動式ETF基金",
     "issuer": "復華投信",
-    "date": "2026/10/15",
-    "nav": "17.12",
+    "date": "2026/10/16",
+    "nav": "17.31",
     "stockWeight": "",
     "url": "https://www.fhtrust.com.tw/ETF/etf_detail/ETF23#stockhold",
     "rows": [
@@ -699,119 +699,119 @@ const source={
         "2330",
         "台灣積體",
         "4200000",
-        "14.608%"
+        "14.336%"
       ],
       [
         "2383",
         "台光電子",
         "1350000",
-        "9.853%"
+        "9.835%"
       ],
       [
         "3037",
         "欣興電子",
         "5350000",
-        "8.198%"
+        "8.225%"
       ],
       [
         "2408",
         "南亞科技",
         "11700000",
-        "7.330%"
-      ],
-      [
-        "8046",
-        "南亞電路",
-        "3400000",
-        "6.519%"
+        "7.385%"
       ],
       [
         "2059",
         "川湖科技",
         "470000",
-        "6.512%"
+        "6.599%"
       ],
       [
         "3189",
         "景碩科技",
         "4620000",
-        "6.447%"
+        "6.516%"
+      ],
+      [
+        "8046",
+        "南亞電路",
+        "3400000",
+        "6.498%"
       ],
       [
         "2454",
         "聯發科技",
         "1050000",
-        "6.234%"
+        "6.294%"
       ],
       [
         "3017",
         "奇鋐科技",
         "1250000",
-        "5.497%"
+        "5.845%"
       ],
       [
         "2327",
         "國巨股份",
         "5800000",
-        "4.737%"
+        "4.638%"
       ],
       [
         "1303",
         "南亞塑膠",
-        "9600000",
-        "4.304%"
+        "10000000",
+        "4.330%"
       ],
       [
         "3653",
         "健策精密",
-        "320000",
-        "3.086%"
+        "340000",
+        "3.227%"
+      ],
+      [
+        "3026",
+        "禾伸堂企",
+        "2800000",
+        "3.183%"
       ],
       [
         "3081",
         "聯亞光電",
         "800000",
-        "3.011%"
-      ],
-      [
-        "3026",
-        "禾伸堂企",
-        "2600000",
-        "3.006%"
-      ],
-      [
-        "5274",
-        "信驊科技",
-        "110500",
-        "2.512%"
+        "2.872%"
       ],
       [
         "6505",
         "台塑石化",
         "15000000",
-        "2.384%"
+        "2.592%"
+      ],
+      [
+        "5274",
+        "信驊科技",
+        "110500",
+        "2.569%"
       ],
       [
         "3711",
         "日月光投",
-        "1700000",
-        "1.631%"
+        "1900000",
+        "1.798%"
       ],
       [
         "3008",
         "大立光電",
         "150000",
-        "1.412%"
-      ],
-      [
-        "6223",
-        "旺矽科技",
-        "1000",
-        "0.008%"
+        "1.354%"
       ],
       [
         "7769",
         "鴻勁精密",
+        "1000",
+        "0.007%"
+      ],
+      [
+        "6223",
+        "旺矽科技",
         "1000",
         "0.007%"
       ],
@@ -846,14 +846,14 @@ const source={
         "0.003%"
       ],
       [
-        "6669",
-        "緯穎科技",
+        "2345",
+        "智邦科技",
         "1000",
         "0.003%"
       ],
       [
-        "2345",
-        "智邦科技",
+        "6669",
+        "緯穎科技",
         "1000",
         "0.003%"
       ],
@@ -864,9 +864,9 @@ const source={
         "0.003%"
       ],
       [
-        "6274",
-        "台燿科技",
-        "1000",
+        "3231",
+        "緯創資通",
+        "9000",
         "0.002%"
       ],
       [
@@ -876,9 +876,9 @@ const source={
         "0.002%"
       ],
       [
-        "3231",
-        "緯創資通",
-        "9000",
+        "6274",
+        "台燿科技",
+        "1000",
         "0.002%"
       ],
       [
@@ -900,15 +900,15 @@ const source={
         "0.002%"
       ],
       [
-        "2882",
-        "國泰金融",
-        "9000",
-        "0.001%"
-      ],
-      [
         "2357",
         "華碩電腦",
         "1000",
+        "0.001%"
+      ],
+      [
+        "2882",
+        "國泰金融",
+        "9000",
         "0.001%"
       ],
       [
@@ -996,8 +996,8 @@ const source={
         "0.000%"
       ]
     ],
-    "assetDate": "2026/10/15",
-    "netAssets": "70152986614",
+    "assetDate": "2026/10/16",
+    "netAssets": "70898186335",
     "units": "4096916000",
     "retiredRows": []
   }
@@ -1172,6 +1172,18 @@ const verifiedChanges={
       "2368": 385000,
       "3037": 217000,
       "6274": 199000
+    },
+    "10/16": {
+      "2308": 118000,
+      "2368": 892000,
+      "2454": 57000,
+      "3017": 156000,
+      "3037": 448000,
+      "3264": 600000,
+      "5274": 15000,
+      "6274": 178000,
+      "6805": 150000,
+      "8996": 285000
     }
   },
   "00403A": {
@@ -1350,6 +1362,13 @@ const verifiedChanges={
     "10/15": {
       "2454": -250000,
       "6274": 120000
+    },
+    "10/16": {
+      "2313": 800000,
+      "2368": 220000,
+      "2383": -200000,
+      "3017": 40000,
+      "6805": 80000
     }
   },
   "00991A": {
@@ -1468,15 +1487,21 @@ const verifiedChanges={
       "3653": 30000,
       "6505": 5000000,
       "6669": -1149020
+    },
+    "10/16": {
+      "1303": 400000,
+      "3026": 200000,
+      "3653": 20000,
+      "3711": 200000
     }
   }
 };
 const fundNotes={
-  "00981A": "10/15 的持有股數與比重來自統一投信官網，10/15 欄位為較 10/14 官網快照的實際股數異動。",
-  "00403A": "10/15 的持有股數與比重來自統一投信官網，10/15 欄位為較 10/14 官網快照的實際股數異動。",
-  "00991A": "10/15 的持有股數與比重來自復華投信官網，10/15 欄位為較 10/14 官網快照的實際股數異動。"
+  "00981A": "10/16 的持有股數與比重來自統一投信官網，10/16 欄位為較 10/15 官網快照的實際股數異動。",
+  "00403A": "10/16 的持有股數與比重來自統一投信官網，10/16 欄位為較 10/15 官網快照的實際股數異動。",
+  "00991A": "10/16 的持有股數與比重來自復華投信官網，10/16 欄位為較 10/15 官網快照的實際股數異動。"
 };
-window.MARKET_REPORT=window.MARKET_REPORT||null;fetch('https://xiaoyu-etf.pages.dev/data/inst.json?v=20261015').then(r=>r.ok?r.json():null).then(x=>{window.MARKET_REPORT=x;if(typeof render==='function')render()}).catch(()=>{});const fundOrder=['00981A','00403A','00991A'];
+window.MARKET_REPORT=window.MARKET_REPORT||null;fetch('https://xiaoyu-etf.pages.dev/data/inst.json?v=20261016').then(r=>r.ok?r.json():null).then(x=>{window.MARKET_REPORT=x;if(typeof render==='function')render()}).catch(()=>{});const fundOrder=['00981A','00403A','00991A'];
 let page='active', activeFund='00981A', selectedStock=null, trustMode='buy';
 const num=v=>Number(String(v??'').replaceAll(',','').replace('%',''))||0;
 const fmt=v=>Number(v).toLocaleString('en-US');
@@ -1486,7 +1511,7 @@ const weight1=v=>v==null||v===''?'':num(v).toFixed(1)+'%';
 const daily=fund=>verifiedChanges[fund][latestDate]||{};
 const dualBuys=Object.fromEntries(dates.map(d=>[d,new Set(Object.keys(verifiedChanges).flatMap(fund=>Object.entries(verifiedChanges[fund][d]||{}).filter(([,v])=>v>0).map(([code])=>code)).filter((code,i,arr)=>arr.indexOf(code)!==i))]));
 const officialLinks={"00981A":"https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=49YTW","00403A":"https://www.ezmoney.com.tw/ETF/Fund/Info?fundCode=63YTW","00991A":"https://www.fhtrust.com.tw/ETF/etf_detail/ETF23#stockhold"};
-const xiaoyuAmounts={"00981A":{"date":"2026/10/15","buy":10.21,"sell":0,"net":10.21},"00403A":{"date":"2026/10/15","buy":1.99,"sell":10.54,"net":-8.55},"00991A":{"date":"2026/10/15","buy":11.91,"sell":21.91,"net":-10}};
+const xiaoyuAmounts={"00981A":{"date":"2026/10/16","buy":40.37,"sell":0,"net":40.37},"00403A":{"date":"2026/10/16","buy":7.82,"sell":10.26,"net":-2.44},"00991A":{"date":"2026/10/16","buy":5.6,"sell":0,"net":5.6}};
 function xiaoyuMetrics(fund){const f=source[fund],x=xiaoyuAmounts[fund];return x&&x.date===f?.date?x:null}
 const moneyYi=(v,sign=false)=>v==null?'—':(sign&&v>0?'+':sign&&v<0?'':'')+Number(v).toFixed(2)+' 億';
 function changedRows(fund){return [...source[fund].rows,...(source[fund].retiredRows||[])].filter(r=>num(r[2])>1000||dates.some(d=>verifiedChanges[fund][d]?.[r[0]])).sort((a,b)=>num(b[3])-num(a[3]));}
