@@ -1,0 +1,5 @@
+import fs from 'node:fs';
+const source = fs.readFileSync('_work/scripts/verify-20261022.mjs', 'utf8')
+  .replaceAll('20261022', '20261110').replaceAll('2026/10/22', '2026/11/10')
+  .replaceAll('10/22', '11/10').replaceAll("days[0] !== '四'", "days[0] !== '二'");
+await import(`data:text/javascript,${encodeURIComponent(source)}`);
